@@ -1,0 +1,13 @@
+# PyCharm
+.idea/
+
+# mypy
+.mypy_cache/
+
+# Distribution
+archive_project.egg-info/
+build/
+dist/
+
+# Python
+__pycache__/
