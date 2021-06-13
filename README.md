@@ -1,7 +1,7 @@
 # archive-project
 
 CLI tool to archive a Python project under the current working directory
-ignoring things like `.idea/`, `.mypy_cache`, `venv`, etc. and send the
+ignoring things like `.idea/`, `.mypy_cache`, `.venv`, etc. and send the
 result `zip` to the desktop
 
 ## Installation
@@ -15,7 +15,17 @@ result `zip` to the desktop
 ## Usage
 
 ```console
+$ archive-project --help
+Usage: archive-project [OPTIONS]
 
+  Zip current Python project
+
+Options:
+  --version  Show the version and exit.
+  --help     Show this message and exit.
+
+$ archive-project
+/Users/user/Desktop/archive-project.zip was successfully created
 ```
 
 ## Requirements
