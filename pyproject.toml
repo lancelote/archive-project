@@ -1,0 +1,130 @@
+[build-system]
+requires = ["uv_build==0.8.15"]
+build-backend = "uv_build"
+
+[project]
+name = "archive-project"
+authors = [
+    {name = "Pavel Karateev", email = "pavel.karateev@jetbrains.com"}
+]
+version = "1.1.0"
+description = "CLI tool to zip Python project and copy archive to the desktop"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE.md"]
+requires-python = ">=3.14"
+dependencies = [
+    "click==8.5.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest==9.1.1",
+    "ruff==0.16.8",
+    "pyrefly>=1.3.1",
+]
+
+[project.scripts]
+archive-project = "archive_project.cli:cli"
+
+[project.urls]
+Homepage = "https://github.com/lancelote/archive-project"
+
+[tool.ruff]
+exclude = [
+    ".git",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv"
+]
+line-length = 80
+target-version = "py314"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    # conflicts
+    "COM812", # conflicts with ruff format
+    "D203", # conflicts with D211
+    "D213", # conflicts with D213
+
+    # deselect
+    "ANN", # we are using a typechecker
+    "D", # documentation is not a concern for this project
+    "S", # security is not a concern for this project
+
+    # gadual adoption
+    "C901",
+    "PLR2004",
+    "PLR0913",
+    "PLR1704",
+    "PLR5501",
+    "PGH004",
+    "I001",
+    "INP001",
+    "PT006",
+    "PT007",
+    "PT014",
+    "PT018",
+    "B911",
+    "B020",
+    "B007",
+    "B905",
+    "N802",
+    "N803",
+    "SIM910",
+    "SIM102",
+    "SIM108",
+    "SIM103",
+    "PERF401",
+    "TC001",
+    "TRY003",
+    "RET505",
+    "RUF022",
+    "A002",
+    "UP006",
+    "EM101",
+    "EM101",
+    "RUF021",
+    "SIM114",
+    "SIM110",
+    "RET507",
+    "TC003",
+    "FURB116",
+    "UP035",
+    "ARG002",
+    "PLR1714",
+    "PLR1736",
+    "UP040",
+    "SIM201",
+    "C414",
+    "SIM113",
+    "EM102",
+    "PERF102",
+    "C416",
+    "PLR1730",
+    "PERF402",
+    "PIE808",
+    "FURB132",
+    "C416",
+    "PLW2901",
+    "TC006",
+    "RUF005",
+    "SIM118",
+    "FBT003",
+    "FBT001",
+    "PLR0912",
+
+    "RET504",   # produces less readable code
+    "PLW3301",  # produces slower code
+    "PLR0911",  # I know better how many returns I need
+    "PLR0917",  # I know better
+    "CPY001",   # I don't care about copyrights
+]
+
+[tool.ruff.lint.isort]
+force-single-line = true
+
+[tool.pyrefly]
+search_path = ["."]
+min-severity = "warn"

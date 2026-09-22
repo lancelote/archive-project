@@ -5,7 +5,7 @@ import click
 
 
 def main() -> int:
-    project = Path(".")
+    project = Path()
     target = Path.home() / "Desktop"
     zip_path = target / project.absolute().name
 
